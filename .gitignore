@@ -25,6 +25,7 @@ Thumbs.db
 
 # User projects (don't commit user data)
 projects/
+test-project/
 
 # Reference materials (don't commit)
 other/
