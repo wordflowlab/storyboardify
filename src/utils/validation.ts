@@ -282,25 +282,25 @@ export function validateStoryboard(storyboard: Storyboard): ValidationResult {
   const errors: ValidationError[] = [];
   const warnings: ValidationWarning[] = [];
 
-  if (!storyboard.project || !storyboard.project.name) {
+  if (!storyboard.metadata || !storyboard.metadata.title) {
     errors.push({
-      field: 'project.name',
-      message: 'Project name is required',
+      field: 'metadata.title',
+      message: 'Storyboard title is required',
       severity: 'error',
     });
   }
 
-  if (!storyboard.workspace) {
+  if (!storyboard.metadata?.workspace) {
     errors.push({
-      field: 'workspace',
+      field: 'metadata.workspace',
       message: 'Workspace type is required',
       severity: 'error',
     });
   }
 
-  if (!storyboard.mode) {
+  if (!storyboard.metadata?.generation_mode) {
     errors.push({
-      field: 'mode',
+      field: 'metadata.generation_mode',
       message: 'Generation mode is required',
       severity: 'error',
     });

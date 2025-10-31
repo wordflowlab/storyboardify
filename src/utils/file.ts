@@ -32,6 +32,13 @@ export async function ensureProjectDir(projectName: string): Promise<string> {
 }
 
 /**
+ * 确保目录存在
+ */
+export async function ensureDir(dirPath: string): Promise<void> {
+  await fs.ensureDir(dirPath);
+}
+
+/**
  * 读取项目配置
  */
 export async function readProjectConfig(projectPath: string): Promise<ProjectState | null> {

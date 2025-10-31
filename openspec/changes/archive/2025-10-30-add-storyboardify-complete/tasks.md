@@ -2,130 +2,130 @@
 
 ## 0. Pre-Implementation Setup
 
-- [ ] 0.1 Create GitHub repository `storyboardify`
-- [ ] 0.2 Initialize npm project structure
-- [ ] 0.3 Configure TypeScript (tsconfig.json)
-- [ ] 0.4 Configure ESLint/Prettier
-- [ ] 0.5 Setup Git hooks (husky + lint-staged)
-- [ ] 0.6 Create .gitignore (node_modules, dist, .DS_Store)
-- [ ] 0.7 Install dependencies (commander, chalk, fs-extra, inquirer, ora)
+- [x] 0.1 Create GitHub repository `storyboardify`
+- [x] 0.2 Initialize npm project structure
+- [x] 0.3 Configure TypeScript (tsconfig.json)
+- [x] 0.4 Configure ESLint/Prettier
+- [x] 0.5 Setup Git hooks (husky + lint-staged)
+- [x] 0.6 Create .gitignore (node_modules, dist, .DS_Store)
+- [x] 0.7 Install dependencies (commander, chalk, fs-extra, inquirer, ora)
 
 ## 1. Project Infrastructure
 
 ### 1.1 Directory Structure
 
-- [ ] 1.1.1 Create `src/` directory
-- [ ] 1.1.2 Create `src/types/` for TypeScript definitions
-- [ ] 1.1.3 Create `src/utils/` for utility functions
-- [ ] 1.1.4 Create `src/modes/` for three-mode implementations
-- [ ] 1.1.5 Create `src/workspaces/` for workspace configurations
-- [ ] 1.1.6 Create `src/exporters/` for export plugins
-- [ ] 1.1.7 Create `scripts/bash/` for POSIX shell scripts
-- [ ] 1.1.8 Create `scripts/powershell/` for PowerShell scripts
-- [ ] 1.1.9 Create `templates/commands/` for Slash Command templates
-- [ ] 1.1.10 Create `docs/` for documentation
-- [ ] 1.1.11 Create `.claude/commands/` for Claude Code integration
-- [ ] 1.1.12 Create `projects/` for user project files (add to .gitignore)
+- [x] 1.1.1 Create `src/` directory
+- [x] 1.1.2 Create `src/types/` for TypeScript definitions
+- [x] 1.1.3 Create `src/utils/` for utility functions
+- [x] 1.1.4 Create `src/modes/` for three-mode implementations
+- [x] 1.1.5 Create `src/workspaces/` for workspace configurations
+- [x] 1.1.6 Create `src/exporters/` for export plugins
+- [x] 1.1.7 Create `scripts/bash/` for POSIX shell scripts
+- [x] 1.1.8 Create `scripts/powershell/` for PowerShell scripts
+- [x] 1.1.9 Create `templates/commands/` for Slash Command templates
+- [x] 1.1.10 Create `docs/` for documentation
+- [x] 1.1.11 Create `.claude/commands/` for Claude Code integration
+- [x] 1.1.12 Create `projects/` for user project files (add to .gitignore)
 
 ### 1.2 Core Types Definition
 
-- [ ] 1.2.1 Define `AIConfig` interface (13 AI platforms)
-- [ ] 1.2.2 Define `WorkspaceConfig` interface
-- [ ] 1.2.3 Define `StoryboardData` interface (shot/scene structure)
-- [ ] 1.2.4 Define `ScriptifyExportData` interface (JSON schema v1.0)
-- [ ] 1.2.5 Define `CharacterDesignSheet` interface
-- [ ] 1.2.6 Define `SceneDesignSheet` interface
-- [ ] 1.2.7 Define `Shot` interface (含四要素)
-- [ ] 1.2.8 Define `ExportResult` interface
-- [ ] 1.2.9 Create `src/types/index.ts` exporting all types
+- [x] 1.2.1 Define `AIConfig` interface (13 AI platforms)
+- [x] 1.2.2 Define `WorkspaceConfig` interface
+- [x] 1.2.3 Define `StoryboardData` interface (shot/scene structure)
+- [x] 1.2.4 Define `ScriptifyExportData` interface (JSON schema v1.0)
+- [x] 1.2.5 Define `CharacterDesignSheet` interface
+- [x] 1.2.6 Define `SceneDesignSheet` interface
+- [x] 1.2.7 Define `Shot` interface (含四要素)
+- [x] 1.2.8 Define `ExportResult` interface
+- [x] 1.2.9 Create `src/types/index.ts` exporting all types
 
 ### 1.3 Utility Functions (复用 Scriptify)
 
-- [ ] 1.3.1 Implement `bash-runner.ts` (执行Bash脚本)
-- [ ] 1.3.2 Implement `interactive.ts` (交互式选择器)
-- [ ] 1.3.3 Implement `yaml-parser.ts` (解析命令模板YAML frontmatter)
-- [ ] 1.3.4 Implement `json-validator.ts` (验证JSON schema)
-- [ ] 1.3.5 Implement `logger.ts` (彩色日志输出)
+- [x] 1.3.1 Implement `bash-runner.ts` (执行Bash脚本)
+- [x] 1.3.2 Implement `interactive.ts` (交互式选择器)
+- [x] 1.3.3 Implement `yaml-parser.ts` (解析命令模板YAML frontmatter)
+- [x] 1.3.4 Implement `json-validator.ts` (验证JSON schema)
+- [x] 1.3.5 Implement `logger.ts` (彩色日志输出)
 
 ## 2. Scriptify Data Import
 
 ### 2.1 JSON Parser
 
-- [ ] 2.1.1 Implement `parseScriptifyJSON(filePath)` - 解析JSON文件
-- [ ] 2.1.2 Validate `meta.version` (检查版本兼容性)
-- [ ] 2.1.3 Validate `meta.type === 'scriptify_export'`
-- [ ] 2.1.4 Extract project metadata
-- [ ] 2.1.5 Extract characters array
-- [ ] 2.1.6 Extract scenes array
-- [ ] 2.1.7 Extract scripts array
-- [ ] 2.1.8 Handle parsing errors (clear error messages)
+- [x] 2.1.1 Implement `parseScriptifyJSON(filePath)` - 解析JSON文件
+- [x] 2.1.2 Validate `meta.version` (检查版本兼容性)
+- [x] 2.1.3 Validate `meta.type === 'scriptify_export'`
+- [x] 2.1.4 Extract project metadata
+- [x] 2.1.5 Extract characters array
+- [x] 2.1.6 Extract scenes array
+- [x] 2.1.7 Extract scripts array
+- [x] 2.1.8 Handle parsing errors (clear error messages)
 
 ### 2.2 Bash Script: `import.sh`
 
-- [ ] 2.2.1 Accept file path argument
-- [ ] 2.2.2 Check if file exists
-- [ ] 2.2.3 Check if valid JSON
-- [ ] 2.2.4 Output JSON: `{ status, project_name, imported_data }`
-- [ ] 2.2.5 Error handling (JSON parse error, missing fields)
+- [x] 2.2.1 Accept file path argument
+- [x] 2.2.2 Check if file exists
+- [x] 2.2.3 Check if valid JSON
+- [x] 2.2.4 Output JSON: `{ status, project_name, imported_data }`
+- [x] 2.2.5 Error handling (JSON parse error, missing fields)
 
 ### 2.3 Slash Command: `/import`
 
-- [ ] 2.3.1 Create `templates/commands/import.md`
-- [ ] 2.3.2 Define YAML frontmatter (description, scripts)
-- [ ] 2.3.3 Write Markdown instructions for AI
-- [ ] 2.3.4 Register command in `src/cli.ts`
-- [ ] 2.3.5 Call `executeBashScript('import', args)`
-- [ ] 2.3.6 Display imported data summary
+- [x] 2.3.1 Create `templates/commands/import.md`
+- [x] 2.3.2 Define YAML frontmatter (description, scripts)
+- [x] 2.3.3 Write Markdown instructions for AI
+- [x] 2.3.4 Register command in `src/cli.ts`
+- [x] 2.3.5 Call `executeBashScript('import', args)`
+- [x] 2.3.6 Display imported data summary
 
 ## 3. Production Pack Generation
 
 ### 3.1 Character Design Sheet Generator
 
-- [ ] 3.1.1 Implement `generateCharacterSheet(character)` in `src/generators/character-sheet.ts`
-- [ ] 3.1.2 Expand appearance details (from JSON)
-- [ ] 3.1.3 Expand personality traits
-- [ ] 3.1.4 Generate MidJourney Prompt (character-focused)
-- [ ] 3.1.5 Generate Stable Diffusion Prompt (character-focused)
-- [ ] 3.1.6 Extract relationship network
-- [ ] 3.1.7 Create design sheet template (Markdown)
+- [x] 3.1.1 Implement `generateCharacterSheet(character)` in `src/generators/character-sheet.ts`
+- [x] 3.1.2 Expand appearance details (from JSON)
+- [x] 3.1.3 Expand personality traits
+- [x] 3.1.4 Generate MidJourney Prompt (character-focused)
+- [x] 3.1.5 Generate Stable Diffusion Prompt (character-focused)
+- [ ] 3.1.6 Extract relationship network (DEFERRED - Phase 2)
+- [x] 3.1.7 Create design sheet template (Markdown)
 
 ### 3.2 Scene Design Sheet Generator
 
-- [ ] 3.2.1 Implement `generateSceneSheet(scene)` in `src/generators/scene-sheet.ts`
-- [ ] 3.2.2 Expand environment description
-- [ ] 3.2.3 Define color scheme (根据atmosphere)
-- [ ] 3.2.4 Define lighting setup
-- [ ] 3.2.5 Generate MidJourney Prompt (scene-focused)
-- [ ] 3.2.6 Generate Stable Diffusion Prompt (scene-focused)
-- [ ] 3.2.7 Create design sheet template (Markdown)
+- [x] 3.2.1 Implement `generateSceneSheet(scene)` in `src/generators/scene-sheet.ts`
+- [x] 3.2.2 Expand environment description
+- [x] 3.2.3 Define color scheme (根据atmosphere)
+- [x] 3.2.4 Define lighting setup
+- [x] 3.2.5 Generate MidJourney Prompt (scene-focused)
+- [x] 3.2.6 Generate Stable Diffusion Prompt (scene-focused)
+- [x] 3.2.7 Create design sheet template (Markdown)
 
 ### 3.3 Bash Scripts
 
-- [ ] 3.3.1 Implement `characters-pack.sh` - 调用character-sheet generator
-- [ ] 3.3.2 Implement `scenes-pack.sh` - 调用scene-sheet generator
-- [ ] 3.3.3 Implement `prompts-gen.sh` - 批量生成Prompts
+- [x] 3.3.1 Implement `characters-pack.sh` - 调用character-sheet generator (integrated in preproduce command)
+- [x] 3.3.2 Implement `scenes-pack.sh` - 调用scene-sheet generator (integrated in preproduce command)
+- [x] 3.3.3 Implement `prompts-gen.sh` - 批量生成Prompts (integrated in preproduce command)
 
 ### 3.4 Slash Commands
 
-- [ ] 3.4.1 Create `/characters-pack` command template
-- [ ] 3.4.2 Create `/scenes-pack` command template
-- [ ] 3.4.3 Create `/prompts-gen` command template
-- [ ] 3.4.4 Register commands in `src/cli.ts`
+- [x] 3.4.1 Create `/characters-pack` command template (integrated as /preproduce)
+- [x] 3.4.2 Create `/scenes-pack` command template (integrated as /preproduce)
+- [x] 3.4.3 Create `/prompts-gen` command template (integrated as /preproduce)
+- [x] 3.4.4 Register commands in `src/cli.ts`
 
 ## 4. Storyboard Generation System
 
 ### 4.1 Three-Mode State Machine
 
-- [ ] 4.1.1 Define `ModeState` type and state machine interface
-- [ ] 4.1.2 Implement `CoachMode` class (`src/modes/coach-mode.ts`)
-- [ ] 4.1.3 Implement `ExpressMode` class (`src/modes/express-mode.ts`)
-- [ ] 4.1.4 Implement `HybridMode` class (`src/modes/hybrid-mode.ts`)
-- [ ] 4.1.5 Implement mode switching logic
-- [ ] 4.1.6 Implement progress tracking for each mode
+- [ ] 4.1.1 Define `ModeState` type and state machine interface (DEFERRED - Phase 2, using simplified Mock generator)
+- [ ] 4.1.2 Implement `CoachMode` class (`src/modes/coach-mode.ts`) (DEFERRED - Phase 2)
+- [ ] 4.1.3 Implement `ExpressMode` class (`src/modes/express-mode.ts`) (DEFERRED - Phase 2)
+- [ ] 4.1.4 Implement `HybridMode` class (`src/modes/hybrid-mode.ts`) (DEFERRED - Phase 2)
+- [ ] 4.1.5 Implement mode switching logic (DEFERRED - Phase 2)
+- [ ] 4.1.6 Implement progress tracking for each mode (DEFERRED - Phase 2)
 
 ### 4.2 Scene Splitting Algorithm
 
-- [ ] 4.2.1 Implement `splitScenes(scriptContent)` in `src/generators/scene-splitter.ts`
+- [ ] 4.2.1 Implement `splitScenes(scriptContent)` in `src/generators/scene-splitter.ts` (DEFERRED - Phase 2)
 - [ ] 4.2.2 Detect time/location/character changes
 - [ ] 4.2.3 Extract scene boundaries
 - [ ] 4.2.4 Assign scene IDs (1.1, 1.2, etc.)
@@ -133,17 +133,17 @@
 
 ### 4.3 Shot Planner (Express Mode)
 
-- [ ] 4.3.1 Implement `planShots(scene)` in `src/generators/shot-planner.ts`
-- [ ] 4.3.2 Analyze scene length → suggest shot count
-- [ ] 4.3.3 Analyze emotion → assign shot types (景别)
-- [ ] 4.3.4 Assign camera angles (平视/仰视/俯视)
-- [ ] 4.3.5 Assign camera movements (静止/推/拉/摇)
-- [ ] 4.3.6 Estimate shot durations
-- [ ] 4.3.7 Generate drawing prompts per shot
+- [x] 4.3.1 Implement `planShots(scene)` in `src/generators/shot-planner.ts` (Simplified Mock implementation)
+- [x] 4.3.2 Analyze scene length → suggest shot count
+- [x] 4.3.3 Analyze emotion → assign shot types (景别)
+- [x] 4.3.4 Assign camera angles (平视/仰视/俯视)
+- [x] 4.3.5 Assign camera movements (静止/推/拉/摇)
+- [x] 4.3.6 Estimate shot durations
+- [ ] 4.3.7 Generate drawing prompts per shot (DEFERRED - Phase 2)
 
 ### 4.4 Camera Movement Optimizer
 
-- [ ] 4.4.1 Implement `optimizeCamera(shots)` in `src/generators/camera-optimizer.ts`
+- [ ] 4.4.1 Implement `optimizeCamera(shots)` in `src/generators/camera-optimizer.ts` (DEFERRED - Phase 2)
 - [ ] 4.4.2 Analyze shot type distribution (景别统计)
 - [ ] 4.4.3 Check for 3+ consecutive same-type shots (warn)
 - [ ] 4.4.4 Suggest camera movement variety
@@ -151,16 +151,16 @@
 
 ### 4.5 Bash Scripts
 
-- [ ] 4.5.1 Implement `storyboard.sh` - 接受--mode参数
-- [ ] 4.5.2 Implement `camera.sh` - 运镜优化建议
-- [ ] 4.5.3 Implement `fill.sh` - 混合模式填充
+- [x] 4.5.1 Implement `storyboard.sh` - 接受--mode参数 (integrated in generate command)
+- [ ] 4.5.2 Implement `camera.sh` - 运镜优化建议 (DEFERRED - Phase 2)
+- [ ] 4.5.3 Implement `fill.sh` - 混合模式填充 (DEFERRED - Phase 2)
 
 ### 4.6 Slash Commands
 
-- [ ] 4.6.1 Create `/storyboard` command template (支持--mode flag)
-- [ ] 4.6.2 Create `/camera` command template
-- [ ] 4.6.3 Create `/fill` command template
-- [ ] 4.6.4 Register commands in `src/cli.ts`
+- [x] 4.6.1 Create `/storyboard` command template (支持--mode flag) (implemented as /generate)
+- [ ] 4.6.2 Create `/camera` command template (DEFERRED - Phase 2)
+- [ ] 4.6.3 Create `/fill` command template (DEFERRED - Phase 2)
+- [x] 4.6.4 Register commands in `src/cli.ts`
 
 ## 5. Workspace System
 
@@ -218,30 +218,30 @@
 
 ### 7.1 Base Exporter
 
-- [ ] 7.1.1 Define `Exporter` interface in `src/exporters/base.ts`
-- [ ] 7.1.2 Define `export(data, options)` method signature
-- [ ] 7.1.3 Define `validate(data)` method signature
-- [ ] 7.1.4 Create exporter registry (`src/exporters/registry.ts`)
+- [x] 7.1.1 Define `Exporter` interface in `src/exporters/base.ts`
+- [x] 7.1.2 Define `export(data, options)` method signature
+- [x] 7.1.3 Define `validate(data)` method signature
+- [x] 7.1.4 Create exporter registry (`src/exporters/registry.ts`)
 
 ### 7.2 Markdown Exporter
 
-- [ ] 7.2.1 Implement `MarkdownExporter` class
-- [ ] 7.2.2 Generate project header section
-- [ ] 7.2.3 Generate scene sections
-- [ ] 7.2.4 Generate shot sections (四要素)
-- [ ] 7.2.5 Include workspace-specific fields
-- [ ] 7.2.6 Export to `.md` file
+- [x] 7.2.1 Implement `MarkdownExporter` class
+- [x] 7.2.2 Generate project header section
+- [x] 7.2.3 Generate scene sections
+- [x] 7.2.4 Generate shot sections (四要素)
+- [x] 7.2.5 Include workspace-specific fields
+- [x] 7.2.6 Export to `.md` file
 
 ### 7.3 PDF Exporter
 
-- [ ] 7.3.1 Implement `PDFExporter` class (use library or Markdown → PDF)
+- [ ] 7.3.1 Implement `PDFExporter` class (use library or Markdown → PDF) (DEFERRED - Phase 2)
 - [ ] 7.3.2 Format storyboard table layout
 - [ ] 7.3.3 Include scene thumbnails (if available)
 - [ ] 7.3.4 Export to `.pdf` file
 
 ### 7.4 Jianying JSON Exporter (剪映)
 
-- [ ] 7.4.1 Research Jianying project file format
+- [ ] 7.4.1 Research Jianying project file format (DEFERRED - Phase 2)
 - [ ] 7.4.2 Implement `JianyingExporter` class
 - [ ] 7.4.3 Convert shots to Jianying tracks (video/audio/subtitle)
 - [ ] 7.4.4 Map camera movements to Jianying effects
@@ -251,7 +251,7 @@
 
 ### 7.5 After Effects JSX Exporter
 
-- [ ] 7.5.1 Research AE JSX script API
+- [ ] 7.5.1 Research AE JSX script API (DEFERRED - Phase 2)
 - [ ] 7.5.2 Implement `AEScriptExporter` class
 - [ ] 7.5.3 Generate composition creation script
 - [ ] 7.5.4 Generate layer structure (前景/中景/背景/特效)
@@ -261,7 +261,7 @@
 
 ### 7.6 Premiere XML Exporter
 
-- [ ] 7.6.1 Research Premiere Pro XML format
+- [ ] 7.6.1 Research Premiere Pro XML format (DEFERRED - Phase 2)
 - [ ] 7.6.2 Implement `PremiereXMLExporter` class
 - [ ] 7.6.3 Generate sequence structure
 - [ ] 7.6.4 Generate clip entries per shot
@@ -269,10 +269,10 @@
 
 ### 7.7 Bash Script & Command
 
-- [ ] 7.7.1 Implement `export.sh` - 接受--format参数
-- [ ] 7.7.2 Create `/export` command template
-- [ ] 7.7.3 Interactive format selection (multi-select)
-- [ ] 7.7.4 Register command in `src/cli.ts`
+- [x] 7.7.1 Implement `export.sh` - 接受--format参数 (integrated in export command)
+- [x] 7.7.2 Create `/export` command template
+- [ ] 7.7.3 Interactive format selection (multi-select) (DEFERRED - Phase 2, currently uses --format flag)
+- [x] 7.7.4 Register command in `src/cli.ts`
 
 ## 8. AI Platform Integration
 

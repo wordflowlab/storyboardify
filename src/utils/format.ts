@@ -111,10 +111,10 @@ export function formatStoryboardAsMarkdown(storyboard: Storyboard): string {
   const lines: string[] = [];
 
   // 标题
-  lines.push(`# ${storyboard.project.name} 分镜脚本`);
+  lines.push(`# ${storyboard.metadata.title} 分镜脚本`);
   lines.push('');
-  lines.push(`- 工作区: ${storyboard.workspace}`);
-  lines.push(`- 模式: ${storyboard.mode}`);
+  lines.push(`- 工作区: ${storyboard.metadata.workspace_display_name}`);
+  lines.push(`- 模式: ${storyboard.metadata.generation_mode}`);
   lines.push(`- 总镜头数: ${storyboard.metadata.total_shots}`);
   if (storyboard.metadata.estimated_duration) {
     lines.push(`- 预估时长: ${storyboard.metadata.estimated_duration}`);

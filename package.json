@@ -1,6 +1,6 @@
 {
   "name": "ai-storyboardify",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "type": "module",
   "description": "AI驱动的分镜脚本创作工具 - 从剧本到制作包的完整解决方案",
   "keywords": [

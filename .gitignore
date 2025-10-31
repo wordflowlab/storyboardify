@@ -40,3 +40,8 @@ logs/
 # Temp files
 *.tmp
 .cache/
+
+.claude/
+.husky/
+.storyboardify/
+# openspec/

@@ -59,10 +59,12 @@ export interface Scene {
   atmosphere?: string;
   color_scheme?: string[];
   drawing_prompt?: string;
+  content?: string; // 场景内容文本
 }
 
 export interface Script {
   episode: number;
+  title?: string; // 剧本标题
   content: string; // Markdown format
   word_count: number;
   format: 'markdown';
@@ -79,6 +81,7 @@ export interface ProductionPack {
   project: ProjectInfo;
   character_sheets: CharacterSheet[];
   scene_sheets: SceneSheet[];
+  source_data: ScriptifyExport; // 引用原始Scriptify数据
 }
 
 /**
@@ -110,6 +113,7 @@ export interface DetailedAppearance extends CharacterAppearance {
  */
 export interface SceneSheet {
   id: string;
+  scene_id: string; // 对应Scene的ID
   name: string;
   location: string;
   time: string;
@@ -143,21 +147,29 @@ export interface LightingSetup {
  * 完整分镜脚本
  */
 export interface Storyboard {
-  project: ProjectInfo;
-  workspace: WorkspaceType;
-  mode: GenerationMode;
-  scenes: StoryboardScene[];
+  version: string; // Schema version
   metadata: StoryboardMetadata;
+  scenes: StoryboardScene[];
+  production_pack_reference?: {
+    characters: string[];
+    scenes: string[];
+  };
 }
 
 export type WorkspaceType = 'manga' | 'short-video' | 'dynamic-manga';
 export type GenerationMode = 'coach' | 'express' | 'hybrid';
 
 export interface StoryboardMetadata {
-  created_at: string;
+  title: string;
+  workspace: WorkspaceType;
+  workspace_display_name: string;
+  aspect_ratio: string;
+  total_scenes: number;
   total_shots: number;
   estimated_duration?: string; // For video workspaces
-  estimated_pages?: number; // For manga workspace
+  estimated_pages?: string; // For manga workspace
+  generation_mode: GenerationMode;
+  created_at: string;
 }
 
 /**

@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "version": "1.0",
+    "type": "scriptify_export",
+    "created_at": "2025-10-30T10:00:00Z",
+    "tool": "scriptify",
+    "tool_version": "0.5.0"
+  },
+  "project": {
+    "name": "心理游戏",
+    "type": "short-drama",
+    "episodes": 1,
+    "genre": ["悬疑", "心理", "惊悚"]
+  },
+  "characters": [
+    {
+      "id": "char_001",
+      "name": "李墨",
+      "age": 30,
+      "role": "主角,心理医生",
+      "appearance": {
+        "height": "180cm",
+        "hair": ["黑色", "中短发"],
+        "clothing": ["黑色风衣", "白衬衫", "深色西裤"],
+        "distinctive_features": ["深邃的眼神", "略带疲惫的神色"]
+      },
+      "personality": "冷静理性,善于观察,内心背负创伤"
+    },
+    {
+      "id": "char_002",
+      "name": "林雪",
+      "age": 25,
+      "role": "女主角,神秘来访者",
+      "appearance": {
+        "hair": ["黑色长发"],
+        "clothing": ["白色连衣裙"]
+      }
+    },
+    {
+      "id": "char_003",
+      "name": "王队长",
+      "age": 45,
+      "role": "配角,刑警队长",
+      "appearance": {}
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_001",
+      "name": "雨夜街头",
+      "location": "城市街道",
+      "time": "夜晚22:00",
+      "weather": "下雨",
+      "atmosphere": "阴暗、压抑、神秘",
+      "color_scheme": ["暗蓝", "灰黑"]
+    },
+    {
+      "id": "scene_002",
+      "name": "心理诊所",
+      "location": "李墨的诊所内部",
+      "time": "夜晚23:00",
+      "atmosphere": "静谧、略显诡异"
+    },
+    {
+      "id": "scene_003",
+      "name": "警局审讯室",
+      "location": "市公安局",
+      "time": "白天10:00"
+    }
+  ],
+  "scripts": [
+    {
+      "episode": 1,
+      "content": "## 场景 1: 雨夜街头\n\n【旁白】这是一个没有月亮的夜晚。\n\n主角李墨独自走在街头,雨水打湿了他的风衣。\n\n李墨: \"又是一个难眠之夜...\"\n\n他抬头看向天空,雨滴打在脸上。\n\n## 场景 2: 心理诊所\n\n李墨推开诊所的门,突然发现沙发上坐着一个白衣女子。\n\n林雪: \"李医生,我等你很久了。\"\n\n李墨惊讶地看着她。\n\n李墨: \"你是...?\"\n\n林雪微笑,眼神中透着不寻常的光芒。\n\n林雪: \"我需要你的帮助,或者说...你需要我的帮助。\"",
+      "word_count": 180,
+      "format": "markdown"
+    }
+  ]
+}
