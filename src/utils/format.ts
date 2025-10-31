@@ -184,7 +184,11 @@ export function toYAMLString(obj: Record<string, unknown>, indent = 0): string {
         }
       });
     } else {
-      lines.push(`${spaces}${key}: ${value}`);
+      const valueStr =
+        typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean'
+          ? String(value)
+          : JSON.stringify(value);
+      lines.push(`${spaces}${key}: ${valueStr}`);
     }
   }
 

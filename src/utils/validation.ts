@@ -54,9 +54,10 @@ export function validateScriptifyExport(data: unknown): ValidationResult {
     }
 
     if (scriptify.meta.type !== 'scriptify_export') {
+      const typeValue = String(scriptify.meta.type ?? 'unknown');
       errors.push({
         field: 'meta.type',
-        message: `Invalid meta.type: expected "scriptify_export", got "${scriptify.meta.type}"`,
+        message: `Invalid meta.type: expected "scriptify_export", got "${typeValue}"`,
         severity: 'error',
       });
     }

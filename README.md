@@ -37,10 +37,19 @@ Storyboardify 是一款专为漫画、短视频和动态漫制作设计的AI辅�
   - 运镜参数优化 (类型/速度/角度/景深)
   - Express模式全自动生成
 
-### 3. 三模式工作流 🚧
-- 🚧 **Coach模式**：AI提问引导,用户手动创建 (Phase 2)
-- ✅ **Express模式**：AI全自动生成完整分镜
-- 🚧 **Hybrid模式**：AI生成框架,用户补充细节 (Phase 2)
+### 3. 三模式工作流 ✅
+- ✅ **Coach模式**：AI引导式学习创作，适合新手（互动式，10-20分钟）
+  - 逐步提问引导
+  - 内置电影知识教育
+  - 支持深度学习 (Learn More)
+  - 可保存进度随时恢复
+- ✅ **Express模式**：AI全自动生成完整分镜（快速，1-2分钟）
+- ✅ **Hybrid模式**：AI生成框架+用户精调（专业，20-30分钟）
+  - AI生成初始框架
+  - 用户填充细节内容
+  - 实时验证和建议
+  - 支持跳过/跳转导航
+  - 可保存进度随时恢复
 
 ### 4. 三工作区系统 ✅
 - ✅ **漫画工作区** (4:3)：翻页位置、气泡位置、页数估算
@@ -90,7 +99,17 @@ storyboardify preproduce
 # 输出: production-pack.json + docs/目录下的Markdown文档
 
 # 4. 生成分镜脚本
-storyboardify generate --mode express
+storyboardify generate
+# 系统会询问您的经验水平并推荐合适的模式:
+# - Express 模式: 全自动AI生成 (快速，1-2分钟)
+# - Coach 模式: AI引导式学习创作 (互动，10-20分钟，适合新手)
+# - Hybrid 模式: AI框架+用户精调 (专业，20-30分钟)
+# 
+# 或直接指定模式:
+# storyboardify generate --mode express
+# storyboardify generate --mode coach
+# storyboardify generate --mode hybrid
+# 
 # 输出: storyboard.json
 
 # 5. 查看项目状态

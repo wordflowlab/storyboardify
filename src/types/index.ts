@@ -4,6 +4,32 @@
  */
 
 // ============================================================================
+// Bash Script Types
+// ============================================================================
+
+/**
+ * Result from bash script execution
+ */
+export interface BashResult {
+  status: 'success' | 'error' | 'info';
+  message?: string;
+  project_name?: string;
+  [key: string]: unknown;
+}
+
+/**
+ * Command template metadata
+ */
+export interface CommandMetadata {
+  description: string;
+  scripts?: {
+    sh?: string;
+    ps1?: string;
+  };
+  [key: string]: unknown;
+}
+
+// ============================================================================
 // Scriptify Integration Types (导入相关)
 // ============================================================================
 
@@ -190,6 +216,7 @@ export interface Shot {
   shot_type: ShotType; // 景别
   camera_angle: CameraAngle; // 角度
   content: string; // 画面内容描述
+  dialogue?: string; // 对话内容 (简化版，可选)
 
   // 运镜参数
   camera_movement?: CameraMovement;
