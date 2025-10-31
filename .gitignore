@@ -45,3 +45,7 @@ logs/
 .husky/
 .storyboardify/
 # openspec/
+
+.cursor/commands
+.claude
+.husky
