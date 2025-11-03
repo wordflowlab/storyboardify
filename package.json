@@ -1,6 +1,6 @@
 {
   "name": "ai-storyboardify",
-  "version": "1.0.0",
+  "version": "0.1.5",
   "type": "module",
   "description": "AI驱动的分镜脚本创作工具 - Slash Command 架构，与 Scriptify 生态集成",
   "keywords": [
@@ -37,14 +37,24 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@alicloud/openapi-client": "^0.4.8",
+    "@alicloud/tea-util": "^1.4.7",
     "@commander-js/extra-typings": "^12.0.0",
+    "axios": "^1.6.0",
     "chalk": "^5.3.0",
+    "dotenv": "^16.4.0",
     "fs-extra": "^11.2.0",
+    "inquirer": "^9.2.12",
     "js-yaml": "^4.1.0",
-    "marked": "^16.4.1"
+    "marked": "^16.4.1",
+    "ora": "^8.0.1",
+    "p-queue": "^8.0.1",
+    "p-retry": "^6.2.0",
+    "sharp": "^0.33.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
+    "@types/inquirer": "^9.0.9",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^20.10.0",
     "@typescript-eslint/eslint-plugin": "^6.13.0",

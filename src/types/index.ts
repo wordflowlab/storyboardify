@@ -30,6 +30,20 @@ export interface CommandMetadata {
 }
 
 // ============================================================================
+// AI Platform Configuration
+// ============================================================================
+
+/**
+ * AI 平台配置
+ */
+export interface AIConfig {
+  name: string;
+  dir: string;
+  commandsDir: string;
+  displayName: string;
+}
+
+// ============================================================================
 // Scriptify Integration Types (导入相关)
 // ============================================================================
 
@@ -449,4 +463,224 @@ export interface StoryboardifyExport {
   project: ProjectInfo;
   storyboard: Storyboard;
   production_pack: ProductionPack;
+}
+
+// ============================================================================
+// Image Generation Types (v0.1.5新增)
+// ============================================================================
+
+/**
+ * 图片生成提供商
+ */
+export type ImageProvider = 'volcano' | 'aliyun' | 'hybrid';
+
+/**
+ * 图片生成质量
+ */
+export type ImageQuality = 'standard' | 'high' | 'ultra';
+
+/**
+ * 火山引擎图片生成请求
+ */
+export interface VolcanoImageGenRequest {
+  prompt: string;
+  negative_prompt?: string;
+  seed?: number;
+  width?: number;
+  height?: number;
+  style_preset?: string;
+  num_images?: number;
+}
+
+/**
+ * 火山引擎图片生成响应
+ */
+export interface VolcanoImageGenResponse {
+  request_id: string;
+  images: Array<{
+    url: string;
+    seed: number;
+  }>;
+  usage: {
+    tokens: number;
+    cost_cny: number;
+  };
+}
+
+/**
+ * 阿里云图片生成请求
+ */
+export interface AliyunImageGenRequest {
+  prompt: string;
+  negative_prompt?: string;
+  seed?: number;
+  width?: number;
+  height?: number;
+  num_images?: number;
+}
+
+/**
+ * 阿里云图片生成响应
+ */
+export interface AliyunImageGenResponse {
+  request_id: string;
+  images: Array<{
+    url: string;
+  }>;
+  usage: {
+    cost_cny: number;
+  };
+}
+
+/**
+ * 统一图片生成请求
+ */
+export interface ImageGenerationRequest {
+  prompt: string;
+  negative_prompt?: string;
+  seed?: number;
+  width?: number;
+  height?: number;
+  num_images?: number;
+  provider: ImageProvider;
+  quality: ImageQuality;
+}
+
+/**
+ * 统一图片生成响应
+ */
+export interface ImageGenerationResponse {
+  request_id: string;
+  images: GeneratedImage[];
+  usage: {
+    cost_cny: number;
+    generation_time: number;
+  };
+  provider: ImageProvider;
+}
+
+/**
+ * 生成的图片
+ */
+export interface GeneratedImage {
+  url: string;
+  local_path?: string;
+  seed?: number;
+  prompt: string;
+  metadata: {
+    shot_id?: string;
+    character_id?: string;
+    scene_id?: string;
+    generated_at: string;
+    cost?: number;
+    generation_time?: number;
+  };
+}
+
+/**
+ * 角色一致性参考
+ */
+export interface CharacterReference {
+  character_id: string;
+  character_name: string;
+  core_features: string;
+  reference_images: string[];
+  successful_seeds: number[];
+  style_params: {
+    style_preset?: string;
+    lora?: string;
+  };
+  generation_history: Array<{
+    prompt: string;
+    seed: number;
+    image_url: string;
+    quality_score: number;
+    timestamp: string;
+  }>;
+}
+
+/**
+ * 场景参考
+ */
+export interface SceneReference {
+  scene_id: string;
+  scene_name: string;
+  core_description: string;
+  reference_images: string[];
+  successful_seeds: number[];
+  lighting_params: {
+    time_of_day: string;
+    light_direction: string;
+    mood: string;
+  };
+}
+
+/**
+ * 批量生成配置
+ */
+export interface BatchGenerationConfig {
+  provider: ImageProvider;
+  quality: ImageQuality;
+  variants_per_shot: number;
+  concurrent_limit: number;
+  retry_on_failure: boolean;
+  save_prompts: boolean;
+}
+
+/**
+ * 批量生成结果
+ */
+export interface BatchGenerationResult {
+  total_shots: number;
+  total_images: number;
+  successful: number;
+  failed: number;
+  total_cost: number;
+  total_time: number;
+  images: Record<string, GeneratedImage[]>;
+  consistency: {
+    character: number;
+    scene: number;
+  };
+}
+
+/**
+ * 一致性评分
+ */
+export interface ConsistencyScore {
+  overall: number;
+  character_appearance: number;
+  character_outfit: number;
+  scene_layout: number;
+  scene_lighting: number;
+  issues: string[];
+  suggestions: string[];
+}
+
+/**
+ * API管理器配置
+ */
+export interface APIManagerConfig {
+  volcano?: {
+    accessKeyId: string;
+    accessKeySecret: string;
+    region?: string;
+  };
+  aliyun?: {
+    accessKeyId: string;
+    accessKeySecret: string;
+    endpoint?: string;
+  };
+  concurrentLimit?: number;
+  maxDailyCost?: number;
+}
+
+/**
+ * 成本统计
+ */
+export interface CostStats {
+  dailyCost: number;
+  maxDailyCost: number;
+  remainingBudget: number;
+  utilizationRate: number;
 }
